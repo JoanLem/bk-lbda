@@ -32,11 +32,11 @@ public class ClientService implements ClientRepository{
 
 	@Override
 	public <S extends ClientModel> S save(S client) {
-		log.info("objeto a Guardar "+ client);
+		//log.info("objeto a Guardar "+ client);
 		S cliente = client;
 				
 		if (cliente.getSharedKey() == null || cliente.getSharedKey().isEmpty()) {
-			log.info("Gerenear Shared key a base del nombre");
+			//log.info("Gerenear Shared key a base del nombre");
 			String nombre = cliente.getName();
 			String[] sharedkey = nombre.split(" ");
 			if (sharedkey.length > 1) {
@@ -48,12 +48,12 @@ public class ClientService implements ClientRepository{
 				cliente.setSharedKey(cliente.getName().replaceAll("\\s+",""));
 			}
 						
-			log.info("<<<<<el Shared Key es>>>>>>> " + cliente.getSharedKey());
+			//log.info("<<<<<el Shared Key es>>>>>>> " + cliente.getSharedKey());
 		}else {
 			cliente.setSharedKey(cliente.getSharedKey().replaceAll("\\s+",""));
 		}
 		
-		log.info(" Cliente: " + cliente);		
+		//log.info(" Cliente: " + cliente);		
 		cliente.setDataAdded(new Date());
 		
 		return clientRepository.save(cliente);

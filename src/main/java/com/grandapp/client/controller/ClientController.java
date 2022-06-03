@@ -41,13 +41,13 @@ public class ClientController {
 			response.setSuccess(true);
 			response.setData(data);
 			status = HttpStatus.OK;
-			log.info("findAll Ejecutado con Exito");
+//			log.info("findAll Ejecutado con Exito");
 			
 		} catch (Exception e) {
 			response.setMessage(e.getMessage());
 			response.setSuccess(false);
 			status = HttpStatus.INTERNAL_SERVER_ERROR;
-			log.info("findAll Fallido >>" + e);	
+	//		log.info("findAll Fallido >>" + e);	
 		}
 		
 		return new ResponseEntity<>(response, status);
@@ -67,16 +67,16 @@ public class ClientController {
 			status = HttpStatus.OK;
 			if (data.isEmpty()) {
 				response.setMessage("El cliente " + sharedKey +" no existe");
-				log.info("El Cliente" + sharedKey + "no Existe!");	
+				//log.info("El Cliente" + sharedKey + "no Existe!");	
 				
 			}
-			log.info("findBySharedKey Ejecutado con Éxito >>" + sharedKey);	
+			//log.info("findBySharedKey Ejecutado con Éxito >>" + sharedKey);	
 			
 		} catch (Exception e) {
 			response.setMessage(e.getMessage());
 			response.setSuccess(false);
 			status = HttpStatus.INTERNAL_SERVER_ERROR;
-			log.error("findBySharedKey Fallido >>" + e);	
+		//	log.error("findBySharedKey Fallido >>" + e);	
 		}	
 		
 		return new ResponseEntity<>(response, status);
@@ -96,14 +96,14 @@ public class ClientController {
 			response.setSuccess(true);
 			response.setData(cliente);
 			status = HttpStatus.OK;
-			log.info("save Ejecutado con Éxito " + cliente );
+			//log.info("save Ejecutado con Éxito " + cliente );
 			
 		} catch (Exception e) {
 			
 			response.setMessage(e.getMessage());
 			response.setSuccess(false);
 			status = HttpStatus.INTERNAL_SERVER_ERROR;
-			log.error("error generado "+ e.getMessage());
+			//log.error("error generado "+ e.getMessage());
 		}
 		return new ResponseEntity<>(response, status);
 	}
@@ -120,14 +120,14 @@ public class ClientController {
 			response.setSuccess(true);
 			//response.setData(data);
 			status = HttpStatus.OK;
-			log.info("delete Ejecutado con Éxito " );
+			//log.info("delete Ejecutado con Éxito " );
 			 
 		} catch (Exception e) {
-			log.info("Error delete client" + e);
+			//log.info("Error delete client" + e);
 			response.setMessage(e.getMessage());
 			response.setSuccess(false);
 			status = HttpStatus.INTERNAL_SERVER_ERROR;
-			log.error("error generado "+ e.getMessage());
+			//log.error("error generado "+ e.getMessage());
 		}
 		return new ResponseEntity<>(response, status);
 						
@@ -137,8 +137,8 @@ public class ClientController {
 	//metodo para validar si el servicio esta arriba
 		@GetMapping("/test")
 		private String saludar() {
-			log.info("estamos en el test");
-			log.warn("ewsto es un peligro");
+			//log.info("estamos en el test");
+			//log.warn("ewsto es un peligro");
 			return "Hello! this service is Run";				
 		}
 
