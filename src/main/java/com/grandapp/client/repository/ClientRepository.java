@@ -11,6 +11,5 @@ import com.grandapp.client.model.ClientModel;
 public interface ClientRepository extends JpaRepository<ClientModel, Long> {
 	
 	@Transactional(readOnly = true)
-	List<ClientModel> findBySharedKey(String sharedKey) throws Exception;
-	
+	List<ClientModel> findBySharedKey(String sharedKey) throws Exception;	
 }
