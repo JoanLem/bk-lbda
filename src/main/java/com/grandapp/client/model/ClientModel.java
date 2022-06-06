@@ -36,7 +36,6 @@ public class ClientModel implements Serializable{
 	private String email;
 	private Date startDate;
 	private Date endDate;
-	//@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy")
 	private Date dataAdded;
 	
 		
